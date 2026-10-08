@@ -1,14 +1,14 @@
 [phases.setup]
-nixPkgs = ["nodejs-18_x", "chromium"]
+nixPkgs = ["nodejs-18_x"]
 
 [phases.install]
 cmds = [
-  "npm install --prefix backend",
-  "npm install --prefix frontend"
+  "cd backend && npm install --production",
+  "cd frontend && npm install"
 ]
 
 [phases.build]
-cmds = ["npm run build --prefix frontend"]
+cmds = ["cd frontend && npm run build"]
 
 [start]
-cmd = "cd backend && node server.js"
+cmd = "cd backend && npm start"
