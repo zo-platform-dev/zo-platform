@@ -1,0 +1,10 @@
+# Nixpacks configuration for Railway deployment
+# This ensures Node.js 18 is installed before running npm commands
+
+[phases.setup]
+
+[phases.build]
+cmd = "cd frontend && npm install && npm run build && cd ../backend && npm install --production"
+
+[start]
+cmd = "cd backend && npm start"
